@@ -1,0 +1,8 @@
+name    'fnerdwq-users'
+version '0.1.0'
+source 'https://github.com/fnerdwq/puppet-users.git'
+author 'Frederik Wagner'
+license 'Apache License, Version 2.0'
+summary 'Puppet module managing users'
+description 'Small module to manage users through puppet and hiera'
+project_page 'https://github.com/fnerdwq/puppet-users'

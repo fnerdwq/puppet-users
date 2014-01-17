@@ -28,7 +28,7 @@ See [Overview](#overview) for now.
 
 * All in hiera defined users.
 * Passwords, Homes, ...
-* ssh authorized key: *only* the explicitly managed key, non managed keys are *not* deleted!
+* ssh authoriyed key: *only* the excplicitly managed key, non managed keys are *not* deleted!
 
 ###Setup Requirements
 
@@ -58,7 +58,7 @@ With this yaml definition, a simple
 ```puppet
 include users
 ```
-takes care of everything.
+takes care of everythiing.
 
 ##Limitations:
 
@@ -66,7 +66,7 @@ Debian and RedHat like systems.
 Tested on:
 
 * Debian 7
-* Vents 6.x
+* Centos 6.x
 
 Puppet Version >= 3.4.0, due to specific hiera usage.
 
