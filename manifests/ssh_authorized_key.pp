@@ -10,7 +10,7 @@ define users::ssh_authorized_key (
 
   ssh_authorized_key { "${user}-${name}":
     ensure  => $sshkey['ensure'],
-    name    => $name,	# the comment
+    name    => $name,                     # the comment
     key     => $sshkey['key'],
     options => $sshkey['options'],
     type    => $sshkey['type'],
