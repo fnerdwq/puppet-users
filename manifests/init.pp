@@ -21,8 +21,11 @@
 # Copyright 2014 Frederik Wagner
 #
 class users (
-  $match='all',  # TODO: hiera match!
+  $match='all',  
 ) {
+  # TODO: hiera match!
+
+  # TODO: make hash class parameter and working with lookup match
 
   $hash=hiera('users', undef)
 
