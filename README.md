@@ -74,5 +74,4 @@ Puppet Version >= 3.4.0, due to specific hiera usage.
 
 * non managed user ssh key should be deleted
 * parameter validation
-* hiera look match must be configurable
 * ...a lot
