@@ -1,7 +1,5 @@
 # this define actually manages the users and calls to manage
-# ssh_authorized_keys
-#
-# (private)
+# ssh_authorized_keys (private)
 define users::manage {
 
   $user=$users::hash[$name]
@@ -9,15 +7,15 @@ define users::manage {
   user { $name:
     ensure     => $user['ensure'],
     password   => $user['password'],
-    managehome => $user['managehome'],
+    managehome => true, #$user['managehome'],
   }
 
   if $user['ssh_authorized_keys'] {
 
-    $sshkey_comments=keys($user['ssh_authorized_keys'])
-    users::ssh_authorized_key { $sshkey_comments:
-      user => $name
-    }
+    # so complicated since ssh_authorized_key name/comment must be unique
+    # over all users!
+    $user_sshkey_comments=prefix(keys($user['ssh_authorized_keys']), "${name} --- ")
+    users::ssh_authorized_key { $user_sshkey_comments: }
   }
 
 }
