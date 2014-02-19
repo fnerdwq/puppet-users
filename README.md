@@ -66,7 +66,7 @@ Debian and RedHat like systems.
 Tested on:
 
 * Debian 7
-* Vents 6.x
+* CentOs 6.x
 
 Puppet Version >= 3.4.0, due to specific hiera usage.
 
