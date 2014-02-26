@@ -7,7 +7,10 @@ define users::manage {
   user { $name:
     ensure     => $user['ensure'],
     password   => $user['password'],
-    managehome => true, #$user['managehome'],
+    home       => $user['home'],
+    shell      => $user['shell'],
+    comment    => $user['comment'],
+    managehome => $user['managehome'],
   }
 
   if $user['ssh_authorized_keys'] {
