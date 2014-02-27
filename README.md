@@ -41,18 +41,32 @@ In hiera (yaml) the key `users` key is defined holding a hash of all the users, 
 ```yaml
 users:
   root:
-    password: '<Password Hash>'
     ensure: present
+    password: '<Password Hash>'
+    gid: root
+    home: /root
+    shell: /bin/bash
+    comment: Big Root
+    managehome: false
+    ssh_private_key:
+      keyname: id_rsa
+      content: |
+       -----BEGIN RSA PRIVATE KEY-----
+       ...
+       -----END RSA PRIVATE KEY-----
     ssh_authorized_keys:
       'SSH Key Comment':
         ensure: present
         type: ssh-rsa
+	options: ...
         key: '<SSH Public Key>'
       'Possibly second key':
         ...
   seconduser:
     ...
 ```
+
+For *ssh_priavate_key* either *content* or *source* can be specified.
 
 With this yaml definition, a simple
 ```puppet
