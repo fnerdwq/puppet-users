@@ -54,9 +54,7 @@ define users::manage {
     # over all users!
     $user_sshkey_comments = prefix(
                         keys($user['ssh_authorized_keys']), "${name} --- ")
-    users::ssh_authorized_key { $user_sshkey_comments:
-      require => File["${home}/.ssh"],
-    }
+    users::ssh_authorized_key { $user_sshkey_comments: }
   }
 
 }
