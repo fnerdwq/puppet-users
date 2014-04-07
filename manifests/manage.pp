@@ -7,6 +7,7 @@ define users::manage {
   user { $name:
     ensure     => $user['ensure'],
     password   => $user['password'],
+    uid        => $user['uid'],
     gid        => $user['gid'],
     home       => $user['home'],
     shell      => $user['shell'],
