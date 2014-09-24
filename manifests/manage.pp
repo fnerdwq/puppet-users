@@ -5,14 +5,23 @@ define users::manage {
   $user=$users::hash[$name]
 
   user { $name:
-    ensure     => $user['ensure'],
-    password   => $user['password'],
-    uid        => $user['uid'],
-    gid        => $user['gid'],
-    home       => $user['home'],
-    shell      => $user['shell'],
-    comment    => $user['comment'],
-    managehome => $user['managehome'],
+    ensure         => $user['ensure'],
+    password       => $user['password'],
+    uid            => $user['uid'],
+    gid            => $user['gid'],
+    home           => $user['home'],
+    shell          => $user['shell'],
+    comment        => $user['comment'],
+    managehome     => $user['managehome'],
+    purge_ssh_keys => $user['purge_ssh_keys'],
+  }
+
+  # HACK: we have to test if group is not 'undef', since otherwise
+  # resource appdning does not work (see ralus::install)
+  if $user['groups'] {
+    User[$name] {
+      groups         => $user['groups'],
+    }
   }
 
   if $user['ssh_private_key'] {
